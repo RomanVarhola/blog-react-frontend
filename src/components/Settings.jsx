@@ -15,8 +15,7 @@ class SettingsForm extends React.Component {
     this.state = {
       username: '',
       email: '',
-      password: '',
-      confirm_password: ''
+      password: ''
     };
 
     this.updateState = field => ev => {
@@ -30,14 +29,12 @@ class SettingsForm extends React.Component {
       ev.preventDefault();
 
       const user = Object.assign({}, this.state);
-      
+
       if (!user.password) {
         delete user.password;
-      }
-
-      if (user.password === user.confirm_password){
-        this.props.onSubmitForm(user);
-      }
+      } 
+        
+      this.props.onSubmitForm(user);
     };
   }
 
@@ -89,15 +86,6 @@ class SettingsForm extends React.Component {
               placeholder="New Password"
               value={this.state.password}
               onChange={this.updateState('password')} />
-          </fieldset>
-
-          <fieldset className="form-group">
-            <input
-              className="form-control form-control-lg"
-              type="password"
-              placeholder="Confirm Password"
-              value={this.state.confirm_password}
-              onChange={this.updateState('confirm_password')} />
           </fieldset>
 
           <button

@@ -43,7 +43,7 @@ const LoggedInView = props => {
 
         <li className="nav-item">
           <Link to="/editor" className="nav-link">
-            <i className="ion-compose"></i>&nbsp;New Post
+            <i className="ion-compose"></i>&nbsp;New Article
           </Link>
         </li>
 
@@ -57,7 +57,7 @@ const LoggedInView = props => {
           <Link
             to={`/@${props.currentUser.username}`}
             className="nav-link">
-            <img src={props.currentUser.image} className="user-pic" alt={props.currentUser.username} />
+            <i className="ion-person"></i>&nbsp;
             {props.currentUser.username}
           </Link>
         </li>

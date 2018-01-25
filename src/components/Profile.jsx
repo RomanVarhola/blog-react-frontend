@@ -28,15 +28,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // onFollow: username => dispatch({
-  //   type: FOLLOW_USER,
-  //   payload: agent.Profile.follow(username)
-  // }),
   onLoad: payload => dispatch({ type: PROFILE_PAGE_LOADED, payload }),
-  // onUnfollow: username => dispatch({
-  //   type: UNFOLLOW_USER,
-  //   payload: agent.Profile.unfollow(username)
-  // }),
   onUnload: () => dispatch({ type: PROFILE_PAGE_UNLOADED })
 });
 
@@ -67,13 +59,13 @@ class Profile extends React.Component {
   }
 
   render() {
-    const profile = this.props.profile;
+    const profile = this.props.currentUser;
     if (!profile) {
       return null;
     }
 
     const isUser = this.props.currentUser &&
-      this.props.profile.username === this.props.currentUser.username;
+      this.props.currentUser.username === this.props.currentUser.username;
 
     return (
       <div className="profile-page">
@@ -83,9 +75,8 @@ class Profile extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-md-10 offset-md-1">
 
-                <img src={profile.image} className="user-img" alt={profile.username} />
                 <h4>{profile.username}</h4>
-                <p>{profile.bio}</p>
+                <p>{profile.email}</p>
 
                 <EditProfileSettings isUser={isUser} />
               

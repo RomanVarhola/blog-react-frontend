@@ -17,7 +17,7 @@ import {
 } from '../constants/actionTypes';
 
 const defaultState = {
-  appName: 'Conduit',
+  appName: 'Blog',
   token: null,
   viewChangeCounter: 0
 };
@@ -36,7 +36,7 @@ export default (state = defaultState, action) => {
     case LOGOUT:
       return { ...state, redirectTo: '/', token: null, currentUser: null };
     case ARTICLE_SUBMITTED:
-      const redirectUrl = `/`;
+      const redirectUrl = '/';
       return { ...state, redirectTo: redirectUrl };
     case SETTINGS_SAVED:
       return {

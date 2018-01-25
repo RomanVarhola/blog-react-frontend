@@ -20,8 +20,7 @@ const mapDispatchToProps = dispatch => ({
 class Article extends React.Component {
   componentWillMount() {
     this.props.onLoad(Promise.all([
-      agent.Articles.get(this.props.match.params.id),
-      agent.Comments.forArticle(this.props.match.params.id)
+      agent.Articles.get(this.props.match.params.id)
     ]));
   }
 
@@ -44,6 +43,7 @@ class Article extends React.Component {
           <div className="container">
 
             <h1>{this.props.article.title}</h1>
+
             <ArticleMeta
               article={this.props.article}
               canModify={canModify} />
