@@ -3,7 +3,8 @@ import _superagent from 'superagent';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = 'http://localhost:3000/api';
+//const API_ROOT = 'http://18.218.81.153:3000/api';
+const API_ROOT = 'http://localhost:3000/api'
 
 const encode = encodeURIComponent;
 const responseBody = res => res.body;
@@ -42,6 +43,8 @@ const omitSlug = article => Object.assign({}, article, { slug: undefined })
 const Articles = {
   all: page =>
     requests.get(`/articles?${limit(10, page)}`),
+  bySort: (sort, page) =>
+    requests.get(`/articles?sort=${sort}&${limit(10, page)}`),
   byAuthor: (author, page) =>
     requests.get(`/articles?author=${encode(author)}&${limit(5, page)}`),
   del: slug =>
@@ -56,7 +59,9 @@ const Articles = {
 
 const Profile = {
   get: user =>
-    requests.get(`/user`)
+    requests.get(`/user`),
+  all: () =>
+    requests.get(`/users`)
 };
 
 export default {

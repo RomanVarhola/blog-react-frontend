@@ -1,6 +1,5 @@
 import React from 'react';
 import ArticleMeta from './Article/ArticleMeta';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const ArticlePreview = props => {
@@ -16,6 +15,7 @@ const ArticlePreview = props => {
 
         <h3>{article.title}</h3>
         <p>{article.body}</p>
+        <p>{article.createdAt}</p>
 
     </div>
   );

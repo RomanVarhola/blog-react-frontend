@@ -59,10 +59,11 @@ class Profile extends React.Component {
   }
 
   render() {
-    const profile = this.props.currentUser;
-    if (!profile) {
+    if (!this.props.profile) {
       return null;
     }
+
+    console.log(this.state);
 
     const isUser = this.props.currentUser &&
       this.props.currentUser.username === this.props.currentUser.username;
@@ -75,8 +76,8 @@ class Profile extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-md-10 offset-md-1">
 
-                <h4>{profile.username}</h4>
-                <p>{profile.email}</p>
+                <h4>{this.props.profile.username}</h4>
+                <p>{this.props.profile.email}</p>
 
                 <EditProfileSettings isUser={isUser} />
               
